@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='fancy.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1' name='viewport'/>
+    <title><data:view.title.escaped/></title>
+    <b:include data='blog' name='all-head-content'/>
+
+    <!-- Font Awesome for Reels icons -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'/>
+
+    <b:skin version='1.3.3'><![CDATA[/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+/*
+<!-- Constants -->
+<Variable name="garamond20" description="20px Garamond" type="font" default="normal 400 20px EB Garamond, serif" hideEditor="true"  value="normal 400 20px EB Garamond, serif"/>
+<Variable name="garamond24" description="24px Garamond" type="font" default="normal 400 24px EB Garamond, serif" hideEditor="true"  value="normal 400 24px EB Garamond, serif"/>
+<Variable name="garamond36" description="36px Garamond" type="font" default="normal 400 36px EB Garamond, serif" hideEditor="true"  value="normal 400 36px EB Garamond, serif"/>
+<Variable name="garamond18" description="18px Garamond" type="font" default="normal 400 18px EB Garamond, serif" hideEditor="true"  value="normal 400 18px EB Garamond, serif"/>
+<Variable name="montserrat12" description="12px Montserrat" type="font" default="normal 400 12px Montserrat, sans-serif" hideEditor="true"  value="normal 400 12px Montserrat, sans-serif"/>
+<Variable name="montserrat14" description="14px Montserrat" type="font" default="normal 400 14px Montserrat, sans-serif" hideEditor="true"  value="normal 400 14px Montserrat, sans-serif"/>
+<Variable name="montserrat16" description="16px Montserrat" type="font" default="normal 400 16px Montserrat, sans-serif" hideEditor="true"  value="normal 400 16px Montserrat, sans-serif"/>
+<Variable name="montserrat24" description="24px Montserrat" type="font" default="normal 400 24px Montserrat, sans-serif" hideEditor="true"  value="normal 400 24px Montserrat, sans-serif"/>
+<Variable name="montserratBold12" description="12px Montserrat Bold" type="font" default="normal 700 12px Montserrat, sans-serif" hideEditor="true"  value="normal 700 12px Montserrat, sans-serif"/>
+<Variable name="montserratBold14" description="14px Montserrat Bold" type="font" default="normal 700 14px Montserrat, sans-serif" hideEditor="true"  value="normal 700 14px Montserrat, sans-serif"/>
+<Variable name="lora14" description="14px Lora" type="font" default="normal 400 14px Lora, serif" hideEditor="true"  value="normal 400 14px Lora, serif"/>
+<Variable name="lora16" description="16px Lora" type="font" default="normal 400 16px Lora, serif" hideEditor="true"  value="normal 400 16px Lora, serif"/>
+<Variable name="shadowColor" description="Shadow color" type="color" default="rgba(0, 0, 0, 0.1)" hideEditor="true"  value="rgba(0, 0, 0, 0.1)"/>
+<Variable name="keycolor" description="Main Color" type="color" default="#bf8b38"  value="#bf8b38"/>
+<Variable name="startSide" description="Start side in blog language" type="automatic" default="left" hideEditor="true" />
+<Variable name="endSide" description="End side in blog language" type="automatic" default="right" hideEditor="true" />
+<Group description="Body">
+  <Variable name="body.background" description="Background" type="background" color="$(body.background.color)" default="$(color) none repeat scroll top left"  value="#0a0a0a none repeat scroll top left"/>
+  <Variable name="body.background.color" description="Background color" type="color" default="#fff"  value="#0a0a0a"/>
+  <Variable name="body.title.font.small" description="Title font (small)" type="font" default="$(garamond20)"  value="normal 400 20px EB Garamond, serif"/>
+  <Variable name="body.title.font.large" description="Title font (large)" type="font" default="$(garamond24)"  value="normal 400 24px EB Garamond, serif"/>
+  <Variable name="body.title.color" description="Title color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="body.action.font.small" description="Action font (small)" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="body.action.font.large" description="Action font (large)" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="body.action.color" description="Action color" type="color" default="#bf8b38"  value="#3b82f6"/>
+  <Variable name="body.text.font" description="Text font" type="font" default="$(garamond20)"  value="normal 400 16px system-ui, sans-serif"/>
+  <Variable name="body.text.color" description="Text color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="body.link.color" description="Link color" type="color" default="#bf8b38"  value="#3b82f6"/>
+  <Variable name="body.widget.title.font.small" description="Gadget title font (small)" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="body.widget.title.font.large" description="Gadget title font (large)" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="body.widget.title.color" description="Gadget title color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="body.filter.background.color" description="Filter background color" type="color" default="#302c24"  value="#1a1a1a"/>
+  <Variable name="body.filter.text.font.small" description="Filter text font (small)" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="body.filter.text.font.large" description="Filter text font (large)" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="body.filter.text.color" description="Filter text color" type="color" default="rgba(255, 255, 255, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="body.filter.keyword.font.small" description="Filter keyword font (small)" type="font" default="$(montserratBold12)"  value="normal 700 12px Montserrat, sans-serif"/>
+  <Variable name="body.filter.keyword.font.large" description="Filter keyword font (large)" type="font" default="$(montserratBold14)"  value="normal 700 14px Montserrat, sans-serif"/>
+  <Variable name="body.filter.keyword.color" description="Filter keyword color" type="color" default="rgba(255, 255, 255, 0.87)"  value="rgba(255, 255, 255, 0.87)"/>
+  <Variable name="body.filter.link.font.small" description="Filter link font (small)" type="font" default="$(montserratBold12)"  value="normal 700 12px Montserrat, sans-serif"/>
+  <Variable name="body.filter.link.font.large" description="Filter link font (large)" type="font" default="$(montserratBold14)"  value="normal 700 14px Montserrat, sans-serif"/>
+  <Variable name="body.filter.link.color" description="Filter link color" type="color" default="#bf8b38"  value="#3b82f6"/>
+</Group>
+<Group description="Header">
+  <Variable name="header.background.color" description="Background color" type="color" default="#fff"  value="#111111"/>
+  <Variable name="header.title.font.small" description="Title font (small)" type="font" default="$(garamond18)"  value="normal 400 18px EB Garamond, serif"/>
+  <Variable name="header.title.font.large" description="Title font (large)" type="font" default="$(garamond36)"  value="normal 400 36px EB Garamond, serif"/>
+  <Variable name="header.title.color" description="Title color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="header.text.font" description="Text font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="header.text.color" description="Text color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="header.pageList.font" description="Page list font" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="header.pageList.color" description="Page list color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="header.pageList.selected.font" description="Page list font (selected page)" type="font" default="$(montserratBold14)"  value="normal 700 14px Montserrat, sans-serif"/>
+  <Variable name="header.pageList.selected.color" description="Page list color (selected page)" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.87)"/>
+  <Variable name="header.icon.color" description="Icon color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+</Group>
+<Group description="Posts">
+  <Variable name="post.text.background.color" description="Background color (text-only post)" type="color" default="#302c24"  value="#1a1a1a"/>
+  <Variable name="post.title.font.small" description="Title font (small)" type="font" default="$(garamond20)"  value="normal 400 20px EB Garamond, serif"/>
+  <Variable name="post.title.font.large" description="Title font (large)" type="font" default="$(garamond24)"  value="normal 400 24px EB Garamond, serif"/>
+  <Variable name="post.title.color" description="Title color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="post.text.title.color" description="Title color (text-only post)" type="color" default="#fff"  value="#ffffff"/>
+  <Variable name="post.header.font" description="Header font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="post.header.color" description="Header color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="post.text.header.color" description="Header color (text-only post)" type="color" default="rgba(255, 255, 255, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="post.footer.font" description="Post Footer Font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="post.footer.color" description="Footer color" type="color" default="#bf8b38"  value="#3b82f6"/>
+  <Variable name="post.text.font.small" description="Text font (small)" type="font" default="$(lora14)"  value="normal 400 14px Lora, serif"/>
+  <Variable name="post.text.font.large" description="Text font (large)" type="font" default="$(lora16)"  value="normal 400 16px Lora, serif"/>
+  <Variable name="post.text.color" description="Text color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="post.text.footer.color" description="Footer color (text-only post)" type="color" default="#bf8b38"  value="#3b82f6"/>
+  <Variable name="post.blockquote.font.small" description="Blockquote font (small)" type="font" default="$(montserrat16)"  value="normal 400 16px Montserrat, sans-serif"/>
+  <Variable name="post.blockquote.font.large" description="Blockquote font (large)" type="font" default="$(montserrat24)"  value="normal 400 24px Montserrat, sans-serif"/>
+  <Variable name="post.blockquote.color" description="Blockquote color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="post.caption.font" description="Caption font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="post.caption.color" description="Caption color" type="color" default="#000"  value="#ffffff"/>
+</Group>
+<Group description="Comments">
+  <Variable name="comment.header.font" description="Header font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="comment.header.color" description="Header color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="comment.author.font" description="Author font" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="comment.author.color" description="Author color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="comment.content.font" description="Content font" type="font" default="$(lora14)"  value="normal 400 14px Lora, serif"/>
+  <Variable name="comment.content.color" description="Content color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="comment.action.font" description="Action font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="comment.action.color" description="Action color" type="color" default="#bf8b38"  value="#3b82f6"/>
+</Group>
+<Group description="Sidebar">
+  <Variable name="sidebar.background.color" description="Background color" type="color" default="#fff"  value="#111111"/>
+  <Variable name="sidebar.separator.color" description="Separator color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.15)"/>
+  <Variable name="sidebar.profile.name.font" description="Profile name font" type="font" default="$(garamond24)"  value="normal 400 24px EB Garamond, serif"/>
+  <Variable name="sidebar.profile.name.color" description="Profile name color" type="color" default="#000"  value="#ffffff"/>
+  <Variable name="sidebar.profile.description.font" description="Profile description font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="sidebar.profile.description.color" description="Profile description color" type="color" default="rgba(0, 0, 0, 0.87)"  value="rgba(255, 255, 255, 0.7)"/>
+  <Variable name="sidebar.action.font" description="Action font" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="sidebar.action.color" description="Action color" type="color" default="#bf8b38"  value="#3b82f6"/>
+  <Variable name="sidebar.widget.title.font" description="Gadget title font" type="font" default="$(montserrat16)"  value="normal 400 16px Montserrat, sans-serif"/>
+  <Variable name="sidebar.widget.title.color" description="Gadget title color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="sidebar.widget.text.font" description="Gadget text font" type="font" default="$(montserrat14)"  value="normal 400 14px Montserrat, sans-serif"/>
+  <Variable name="sidebar.widget.text.color" description="Gadget text color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+  <Variable name="sidebar.icon.color" description="Icon color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.54)"/>
+</Group>
+<Group description="Search">
+  <Variable name="search.input.font" description="Input font" type="font" default="$(montserrat16)"  value="normal 400 16px Montserrat, sans-serif"/>
+</Group>
+<Group description="Attribution">
+  <Variable name="attribution.text.font" description="Attribution text font" type="font" default="$(montserrat12)"  value="normal 400 12px Montserrat, sans-serif"/>
+  <Variable name="attribution.text.color" description="Attribution text color" type="color" default="rgba(0, 0, 0, 0.54)"  value="rgba(255, 255, 255, 0.4)"/>
+  <Variable name="attribution.icon.color" description="Attribution icon color" type="color" default="rgba(0, 0, 0, 0.54)" hideEditor="true"  value="rgba(255, 255, 255, 0.4)"/>
+</Group>
+<Group description="Widths" selector="#main, html[dir=rtl] .sidebar-container, html[dir=ltr] .sidebar-container">
+  <Variable name="sidebar.width" description="Sidebar width" type="length" min="100px" max="1000px" default="284px"  value="284px"/>
+  <Variable name="content.width" description="Content width" type="length" min="660px" max="2400px" default="922px"  value="922px"/>
+  <Variable name="content.margin" description="Content margin" type="length" min="0px" max="1000px" default="117px"  value="117px"/>
+</Group>
+ */
+
+/* ============================================================
+   BASE THEME STYLES (from original Soho theme)
+   ============================================================ */
+body{overflow-wrap:break-word;word-break:break-word;word-wrap:break-word}
+.hidden{display:none}.invisible{visibility:hidden}
+.container::after,.float-container::after{clear:both;content:"";display:table}
+.clearboth{clear:both}
+.dim-overlay{background-color:rgba(0,0,0,.54);height:100vh;left:0;position:fixed;top:0;width:100%}
+input::-ms-clear{display:none}
+.skip-navigation{background-color:#111;box-sizing:border-box;color:#fff;display:block;height:0;left:0;line-height:50px;overflow:hidden;padding-top:0;position:fixed;text-align:center;top:0;transition:box-shadow .3s,height .3s,padding-top .3s;width:100%;z-index:900}
+.skip-navigation:focus{box-shadow:0 4px 5px 0 rgba(0,0,0,.4);height:50px}
+#main{outline:0}
+.main-heading{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+.Attribution{margin-top:1em;text-align:center}
+.post-body img{max-width:100%}
+.post-body iframe{max-width:100%}
+.byline{margin-right:1em}
+.byline:last-child{margin-right:0}
+.paging-control-container{margin-bottom:16px}
+.paging-control-container .paging-control{display:inline-block}
+.item-control{display:none}
+
+/* ============================================================
+   GLOBAL DARK THEME OVERRIDES
+   ============================================================ */
+body{
+  background-color:#0a0a0a;
+  color:#ffffff;
+  font-family:system-ui,-apple-system,sans-serif;
+  margin:0;
+  min-height:100vh;
+}
+a{color:#3b82f6;text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-weight:400;color:#fff}
+
+/* ============================================================
+   HEADER / NAV — dark theme
+   ============================================================ */
+.page_body{display:flex;flex-direction:column;min-height:100vh;position:relative;z-index:20}
+.page_body>*{flex:0 0 auto}
+.centered-top-container,.centered-top-placeholder{background:#111111;border-bottom:1px solid #1e1e1e}
+.centered-bottom,.centered-top{margin:0 32px;max-width:100%}
+.centered-top{display:flex;flex-wrap:wrap;justify-content:space-between;position:relative;padding-bottom:12px;padding-top:12px}
+.centered-top-container .svg-icon-24,.centered-top-placeholder .svg-icon-24{fill:rgba(255,255,255,0.54)}
+.back-button-container,.hamburger-menu-container{flex:0 0 auto;height:48px;order:1}
+.back-button,.hamburger-menu,.search-expand-icon{cursor:pointer;margin-top:0}
+.search{align-items:flex-start;flex:0 0 auto;height:48px;margin-left:24px;order:3}
+.blog-name{flex:1 1 100%;order:4;overflow:hidden}
+.sticky .blog-name{flex:1 1 auto;margin:0 12px;order:2}
+.sticky{box-shadow:0 1px 3px rgba(0,0,0,0.5);background:#111}
+.widget.Header h1{font:normal 400 18px EB Garamond,serif;margin:0;text-transform:uppercase}
+.widget.Header h1,.widget.Header h1 a{color:#ffffff}
+.widget.Header p{color:rgba(255,255,255,0.54);font:normal 400 12px Montserrat,sans-serif;line-height:1.7}
+.sticky .widget.Header h1{font-size:16px;line-height:48px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sticky .widget.Header p{display:none}
+#page_list_top .widget.PageList{font:normal 400 14px Montserrat,sans-serif;line-height:28px}
+#page_list_top .widget.PageList .title{display:none}
+#page_list_top .widget.PageList .overflowable-contents{overflow:hidden}
+#page_list_top .widget.PageList .overflowable-contents ul{list-style:none;margin:0;padding:0}
+#page_list_top .widget.PageList .overflowable-contents li{display:inline-block}
+#page_list_top .widget.PageList .overflowable-contents li:not(:first-child):before{color:rgba(255,255,255,0.54);content:"\b7"}
+#page_list_top .widget.PageList .overflow-button a,
+#page_list_top .widget.PageList .overflowable-contents li a{color:rgba(255,255,255,0.54);font:normal 400 14px Montserrat,sans-serif;text-transform:uppercase}
+.subscribe-section-container{flex:1 0 auto;margin-left:24px;order:2;text-align:right}
+.subscribe-button{background:0 0;border:0;margin:0;outline:0;padding:0;color:#3b82f6;cursor:pointer;display:inline-block;font:normal 400 12px Montserrat,sans-serif;line-height:48px;text-transform:uppercase}
+.search-expand{background:0 0;border:0;margin:0;outline:0;padding:0;color:#3b82f6;cursor:pointer;flex:0 0 auto;font:normal 400 12px Montserrat,sans-serif;text-transform:uppercase;word-break:normal}
+.search-input input{background:0 0;border:0;box-sizing:border-box;color:rgba(255,255,255,0.54);display:inline-block;outline:0;width:calc(100% - 48px)}
+.search.focused form{border-color:rgba(255,255,255,0.54)}
+
+/* Collapsible */
+.collapsible{transition:height .3s cubic-bezier(.4,0,.2,1)}
+.collapsible,.collapsible>summary{display:block;overflow:hidden}
+.collapsible>:not(summary){display:none}
+.collapsible[open]>:not(summary){display:block}
+.collapsible>summary{cursor:pointer;display:block;padding:0}
+.collapsible-title{align-items:center;display:flex}
+.collapsible-title .title{flex:1 1 auto;order:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.collapsible-title .chevron-down,.collapsible[open] .collapsible-title .chevron-up{display:block}
+.collapsible-title .chevron-up,.collapsible[open] .collapsible-title .chevron-down{display:none}
+
+/* Overflow popup */
+.overflow-popup{background-color:#111;left:0;max-width:calc(100% - 32px);position:absolute;top:0;visibility:hidden;z-index:101;box-shadow:0 2px 2px 0 rgba(0,0,0,.4)}
+.overflow-popup ul{list-style:none}
+.overflow-popup .tabs li,.overflow-popup li{display:block;height:auto}
+.overflow-button.hidden,.overflow-popup .tabs li.hidden,.overflow-popup li.hidden{display:none}
+
+/* Sidebar removed */
+.sidebar-container{display:none!important}
+body.sidebar-visible{overflow-y:auto}
+
+/* Attribution hidden */
+.widget.Attribution{display:none!important;}
+
+/* Share buttons */
+.share-buttons{background-color:#1a1a1a;border:1px solid #2a2a2a;color:#fff}
+.share-buttons .svg-icon-24{fill:#3b82f6}
+
+/* Flat buttons */
+.flat-button{cursor:pointer;display:inline-block;font-weight:700;text-transform:uppercase;border-radius:2px;padding:8px;margin:-8px}
+.flat-icon-button{background:0 0;border:0;margin:0;outline:0;padding:0;margin:-12px;padding:12px;cursor:pointer;box-sizing:content-box;display:inline-block;line-height:0;border-radius:50%}
+.svg-icon-24,.svg-icon-24-button{cursor:pointer;height:24px;width:24px;min-width:24px}
+.touch-icon{margin:-12px;padding:12px}
+.touch-icon:active,.touch-icon:focus{background-color:rgba(255,255,255,0.1);border-radius:50%}
+
+/* ============================================================
+   MAIN CONTENT AREA — full-width dark container
+   ============================================================ */
+.centered-bottom{
+  margin:0 !important;
+  max-width:100% !important;
+  padding:0 !important;
+}
+#main{
+  background:#0a0a0a;
+  padding:0;
+}
+
+/* Hide the default blog widget sections since we're showing the Reels grid instead */
+.main .widget.Blog,
+.main .widget.FeaturedPost,
+.main .widget.PopularPosts{
+  display:none !important;
+}
+
+/* ============================================================
+   REELS GRID — countdown bar
+   ============================================================ */
+#rls-countdown-bar{
+  position:fixed;top:0;left:0;right:0;
+  height:3px;background:#1a1a1a;z-index:999;
+}
+#rls-countdown-progress{
+  height:100%;width:100%;background:#3b82f6;
+}
+#rls-countdown-toast{
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%);
+  background:rgba(15,15,15,0.92);
+  border:1px solid #2a2a2a;color:#fff;
+  font-size:13px;padding:10px 20px;
+  border-radius:9999px;z-index:999;
+  display:flex;align-items:center;gap:10px;
+  white-space:nowrap;backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font-family:system-ui,sans-serif;
+}
+#rls-countdown-toast .rls-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#3b82f6;animation:rlsPulse 1s infinite;
+}
+#rls-countdown-num{font-weight:700;color:#3b82f6;min-width:10px;display:inline-block;}
+
+/* ============================================================
+   REELS GRID — cards
+   ============================================================ */
+.rls-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;padding:12px;
+  max-width:1480px;margin:0 auto;
+}
+.rls-card{
+  position:relative;
+  aspect-ratio:9/16;
+  background:#1a1a1a;
+  border-radius:14px;
+  overflow:hidden;cursor:pointer;
+  border:1px solid #1e1e1e;
+  transition:transform 0.25s ease;
+}
+.rls-card:hover{transform:scale(1.03);}
+.rls-card:hover .rls-play-ring{transform:translate(-50%,-50%) scale(1.22);opacity:0.5;}
+.rls-card-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  background-color:#1a1a1a;
+}
+.rls-play-btn{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:20;
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(0,0,0,0.42);
+  border:none;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 18px rgba(0,0,0,0.38);
+  transition:transform 0.2s ease, background 0.2s ease;
+  pointer-events:none;
+  overflow:hidden;
+}
+.rls-play-btn::before{
+  content:'';
+  position:absolute;inset:0;border-radius:50%;
+  border:2.5px solid rgba(255,255,255,0.82);
+  pointer-events:none;
+}
+.rls-play-btn i{
+  font-size:26px;
+  color:#fff;
+  margin-left:6px;
+  filter:drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+  position:relative;z-index:1;
+}
+.rls-card:hover .rls-play-btn{
+  transform:translate(-50%,-50%) scale(1.1);
+  background:rgba(0,0,0,0.58);
+}
+/* no ring — clean minimal look */
+.rls-play-ring{display:none;}
+.rls-download-btn{
+  position:absolute;top:10px;right:10px;
+  height:32px;
+  padding:0 12px 0 10px;
+  background:linear-gradient(135deg,#7c3aed,#3b82f6);
+  border:none;
+  border-radius:9999px;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  z-index:25;text-decoration:none;color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:0.04em;
+  text-transform:uppercase;
+  font-family:system-ui,sans-serif;
+  box-shadow:0 2px 12px rgba(124,58,237,0.55);
+  overflow:hidden;
+  transition:transform 0.2s,box-shadow 0.2s;
+  white-space:nowrap;
+}
+.rls-download-btn::before{
+  content:'';
+  position:absolute;top:0;left:-60%;
+  width:40%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);
+  animation:rlsShimmer 2.2s infinite;
+}
+.rls-download-btn i{font-size:11px;flex-shrink:0;}
+.rls-download-btn:hover{transform:scale(1.07);box-shadow:0 4px 20px rgba(124,58,237,0.75);color:#fff;}
+@keyframes rlsShimmer{0%{left:-60%}100%{left:140%}}
+.rls-live{
+  position:absolute;top:10px;left:10px;
+  background:#ef4444;color:white;
+  font-size:11px;font-weight:700;
+  padding:3px 9px;border-radius:9999px;
+  display:flex;align-items:center;gap:5px;
+  z-index:20;animation:rlsBlink 2s infinite;
+  font-family:system-ui,sans-serif;
+}
+.rls-live-dot{width:6px;height:6px;background:#fff;border-radius:50%;animation:rlsLivePulse 1.5s infinite;}
+.rls-gradient{display:none;}
+.rls-info{
+  position:absolute;bottom:50px;left:12px;right:90px;
+  z-index:10;pointer-events:none;
+}
+.rls-avatar{
+  width:38px;height:38px;border-radius:50%;
+  flex-shrink:0;
+  overflow:hidden;
+  border:2.5px solid transparent;
+  background:linear-gradient(#0a0a0a,#0a0a0a) padding-box,
+             linear-gradient(135deg,#f472b6,#a855f7,#3b82f6) border-box;
+  box-shadow:0 0 8px rgba(244,114,182,0.45);
+  display:block;
+}
+.rls-username{font-size:13px;font-weight:600;margin:0;color:#fff;font-family:system-ui,sans-serif;}
+.rls-caption{font-size:11px;color:rgba(255,255,255,0.72);margin:2px 0 0;font-family:system-ui,sans-serif;}
+.rls-stats-bar{
+  position:absolute;bottom:12px;left:12px;
+  z-index:10;display:flex;gap:8px;pointer-events:none;
+}
+.rls-stat{
+  display:flex;align-items:center;gap:4px;
+  font-size:11px;color:rgba(255,255,255,0.8);
+  background:rgba(0,0,0,0.45);padding:3px 8px;border-radius:9999px;
+  font-family:system-ui,sans-serif;
+}
+.rls-watch-btn{
+  position:absolute;bottom:12px;right:12px;
+  background:#3b82f6;color:white;
+  font-size:12px;font-weight:600;
+  padding:6px 13px;border-radius:9999px;
+  display:flex;align-items:center;gap:5px;
+  z-index:25;text-decoration:none;
+  transition:background 0.2s,transform 0.15s;
+  font-family:system-ui,sans-serif;
+}
+.rls-watch-btn:hover{background:#2563eb;transform:scale(1.05);}
+
+/* ============================================================
+   REELS GRID — animations
+   ============================================================ */
+@keyframes rlsBlink{0%,100%{opacity:1}50%{opacity:0.85}}
+@keyframes rlsLivePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
+@keyframes rlsPulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes rlsRingPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.45}50%{transform:translate(-50%,-50%) scale(1.28);opacity:0.1}}
+
+/* ============================================================
+   RESPONSIVE — mobile first
+   ============================================================ */
+@media screen and (max-width:1024px){
+  .rls-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media screen and (max-width:640px){
+  .centered-bottom,.centered-top{margin:0 16px;max-width:calc(100% - 32px);}
+  .rls-grid{grid-template-columns:1fr;padding:8px;gap:8px;}
+  #rls-countdown-toast{font-size:12px;padding:8px 16px;}
+}
+@media screen and (min-width:640px){
+  .centered-bottom,.centered-top{margin:0 auto;width:576px;}
+  .centered-top{flex-wrap:nowrap;padding-bottom:24px;padding-top:36px;}
+  .blog-name{flex:1 1 auto;min-width:0;order:2;}
+  .back-button-container,.hamburger-menu-container{margin-right:36px;order:1;}
+  .search{margin-left:36px;order:4;}
+  .subscribe-section-container{flex:0 0 auto;margin-left:36px;order:3;}
+  .subscribe-button{font:normal 400 14px Montserrat,sans-serif;line-height:48px;}
+  .widget.Header h1{font:normal 400 36px EB Garamond,serif;}
+  .centered-bottom{width:100% !important;margin:0 !important;}
+}
+@media screen and (min-width:1162px){
+  .centered-top{width:922px;margin:0 auto;}
+  .back-button-container,.hamburger-menu-container{margin-right:48px;}
+  .search{margin-left:48px;}
+  .subscribe-section-container{margin-left:48px;}
+}
+.hamburger-menu-container{display:none!important;}
+.back-button-container{display:flex;}
+]]></b:skin>
+
+    <b:template-skin>
+      <![CDATA[
+      body#layout .hidden,
+      body#layout .invisible { display: inherit; }
+      body#layout .page { width: 60%; float: right; }
+      body#layout .sidebar-container { width: 40%; float: left; }
+      ]]>
+    </b:template-skin>
+
+    <b:if cond='(data:widgets any (w =&gt; w.type == &quot;AdSense&quot;) or data:blog.adsenseClientId) and not data:blog.adsenseAutoAds'>
+      <script async='async' src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'/>
+    </b:if>
+    <b:include data='blog' name='google-analytics'/>
+  </head>
+
+  <body>
+    <b:class cond='data:view.isPreview' name='preview'/>
+    <b:class cond='data:view.isHomepage' name='homepage-view'/>
+    <b:class cond='data:view.isPost' name='post-view'/>
+    <b:class cond='data:view.isMultipleItems' name='feed-view'/>
+    <b:class cond='data:view.isSingleItem' name='item-view'/>
+    <b:class cond='data:view.isError' name='error-view'/>
+    <b:class name='version-1-3-3'/>
+
+    <b:include name='skipNavigation'/>
+
+    <!-- ===== COUNTDOWN BAR ===== -->
+    <div id='rls-countdown-bar'><div id='rls-countdown-progress'></div></div>
+    <div id='rls-countdown-toast'>
+      <span class='rls-dot'></span>
+      Redirecting in <span id='rls-countdown-num'>5</span>s
+    </div>
+
+    <div class='page'>
+      <div class='page_body'>
+        <div class='main-page-body-content'>
+          <div class='centered-top-placeholder'/>
+          <header class='centered-top-container' role='banner'>
+            <div class='centered-top'>
+              <b:if cond='data:view.isPost'>
+                <div class='back-button-container'>
+                  <a expr:href='data:blog.homepageUrl'>
+                    <b:include data='{ iconClass: &quot;touch-icon back-button rtl-reversible-icon&quot; }' name='backArrowIcon'/>
+                  </a>
+                </div>
+              <b:else/>
+                <div class='hamburger-menu-container'>
+                  <b:include data='{ iconClass: &quot;touch-icon hamburger-menu&quot; }' name='menuIcon'/>
+                </div>
+              </b:if>
+
+              <b:if cond='data:view.isLayoutMode or data:widgets any (w =&gt; w.sectionId == &quot;search_top&quot;)'>
+                <div class='search'>
+                  <b:class cond='data:view.isSearch and data:view.search.query' name='focused'/>
+                  <button class='search-expand touch-icon-button' expr:aria-label='data:messages.search.escaped'>
+                    <div class='search-expand-text'><data:messages.search/></div>
+                    <b:include data='{ iconClass: &quot;touch-icon search-expand-icon&quot; }' name='searchIcon'/>
+                  </button>
+                  <b:section id='search_top' name='Search (Top)' showaddelement='false'>
+                    <b:widget id='BlogSearch1' locked='true' title='Search This Blog' type='BlogSearch' visible='false'>
+                      <b:includable id='main'>
+                        <b:include name='widget-title'/>
+                        <b:include name='content'/>
+                      </b:includable>
+                      <b:includable id='content'>
+                        <div class='widget-content' role='search'>
+                          <b:include name='searchForm'/>
+                        </div>
+                      </b:includable>
+                      <b:includable id='searchForm'>
+                        <form expr:action='data:blog.searchUrl'>
+                          <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+                          <b:include name='urlParamsAsFormInput'/>
+                          <div class='search-input'>
+                            <input autocomplete='off' expr:aria-label='data:messages.searchThisBlog' expr:placeholder='data:messages.searchThisBlog' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q'/>
+                          </div>
+                          <b:include name='searchSubmit'/>
+                        </form>
+                      </b:includable>
+                      <b:includable id='searchSubmit'>
+                        <b:if cond='data:widget.sectionId == &quot;search_top&quot;'>
+                          <label>
+                            <input type='submit'/>
+                            <b:include data='{ iconClass: &quot;touch-icon search-icon&quot; }' name='searchIcon'/>
+                          </label>
+                        <b:else/>
+                          <b:include name='super.searchSubmit'/>
+                        </b:if>
+                      </b:includable>
+                    </b:widget>
+                  </b:section>
+                </div>
+              </b:if>
+
+              <div class='blog-name'>
+                <b:section id='header' name='Header' showaddelement='false'>
+                  <b:widget id='Header1' locked='true' title='Blog Header' type='Header' visible='false'>
+                    <b:widget-settings>
+                      <b:widget-setting name='displayUrl'/>
+                      <b:widget-setting name='displayHeight'>0</b:widget-setting>
+                      <b:widget-setting name='sectionWidth'>-1</b:widget-setting>
+                      <b:widget-setting name='useImage'>false</b:widget-setting>
+                      <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                      <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+                      <b:widget-setting name='displayWidth'>0</b:widget-setting>
+                    </b:widget-settings>
+                    <b:includable id='main' var='this'>
+                      <div class='header-widget'>
+                        <b:include cond='data:imagePlacement not in {&quot;REPLACE&quot;, &quot;BEFORE_DESCRIPTION&quot;}' name='title'/>
+                        <b:include cond='data:imagePlacement != &quot;REPLACE&quot;' name='description'/>
+                      </div>
+                    </b:includable>
+                    <b:includable id='description'><p><data:this.description/></p></b:includable>
+                    <b:includable id='title'>
+                      <div>
+                        <b:class cond='data:this.imagePlacement == &quot;REPLACE&quot;' name='replaced'/>
+                        <b:include name='super.title'/>
+                      </div>
+                    </b:includable>
+                  </b:widget>
+                </b:section>
+                <nav role='navigation'>
+                  <b:section id='page_list_top' name='Page List (Top)' showaddelement='false'>
+                    <b:widget id='PageList1' locked='true' title='' type='PageList' visible='false'>
+                      <b:widget-settings>
+                        <b:widget-setting name='pageListJson'><![CDATA[{"home":{"href":"http://zeevidss.blogspot.com/","position":0,"title":"Home"}}]]></b:widget-setting>
+                        <b:widget-setting name='homeTitle'>Home</b:widget-setting>
+                      </b:widget-settings>
+                      <b:includable id='main'>
+                        <b:include name='widget-title'/>
+                        <b:include name='content'/>
+                      </b:includable>
+                      <b:includable id='content'>
+                        <div class='widget-content'>
+                          <b:if cond='data:widget.sectionId == &quot;page_list_top&quot;'>
+                            <b:include name='overflowablePageList'/>
+                          <b:else/>
+                            <b:include name='pageList'/>
+                          </b:if>
+                        </div>
+                      </b:includable>
+                      <b:includable id='overflowButton'><a><data:messages.moreEllipsis/></a></b:includable>
+                      <b:includable id='overflowablePageList'>
+                        <div class='overflowable-container'>
+                          <div class='overflowable-contents'>
+                            <div class='container'>
+                              <b:with value='true' var='overflow'>
+                              <b:with value='&quot;tabs&quot;' var='pageListClass'>
+                                <b:include name='pageList'/>
+                              </b:with>
+                              </b:with>
+                            </div>
+                          </div>
+                          <div class='overflow-button hidden'>
+                            <b:include name='overflowButton'/>
+                          </div>
+                        </div>
+                      </b:includable>
+                      <b:includable id='pageLink'>
+                        <li>
+                          <b:class cond='data:overflow' name='overflowable-item'/>
+                          <b:class cond='data:link.isCurrentPage' name='selected'/>
+                          <a expr:href='data:link.href'><data:link.title/></a>
+                        </li>
+                      </b:includable>
+                      <b:includable id='pageList'>
+                        <ul>
+                          <b:class cond='data:pageListClass' expr:name='data:pageListClass'/>
+                          <b:loop values='data:links' var='link'>
+                            <b:include name='pageLink'/>
+                          </b:loop>
+                        </ul>
+                      </b:includable>
+                    </b:widget>
+                  </b:section>
+                </nav>
+              </div>
+            </div>
+          </header>
+
+          <!-- ===== MAIN CONTENT: REELS GRID ===== -->
+          <main class='centered-bottom' id='main' role='main' tabindex='-1'>
+
+            <!-- Hidden blog widget section (required by Blogger) -->
+            <b:section ads='true' class='main' id='page_body' name='Page Body' showaddelement='false'>
+              <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                  <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+                  <b:widget-setting name='showCommentLink'>false</b:widget-setting>
+                  <b:widget-setting name='showAuthor'>false</b:widget-setting>
+                  <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                  <b:widget-setting name='showLabels'>false</b:widget-setting>
+                  <b:widget-setting name='showLocation'>false</b:widget-setting>
+                  <b:widget-setting name='showTimestamp'>false</b:widget-setting>
+                  <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+                  <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                  <b:widget-setting name='showReactions'>false</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <!-- Blog posts hidden; Reels grid shown instead -->
+                </b:includable>
+              </b:widget>
+            </b:section>
+
+            <!-- ===== REELS GRID RENDERS HERE ===== -->
+            <div class='rls-grid' id='rls-grid'></div>
+
+          </main>
+        </div>
+
+        <b:section class='footer' id='footer' name='Footer' showaddelement='false' tag='footer'>
+          <b:widget id='Attribution1' locked='true' title='' type='Attribution' visible='false'>
+            <b:widget-settings>
+              <b:widget-setting name='copyright'/>
+            </b:widget-settings>
+            <b:includable id='main' var='this'>
+            </b:includable>
+          </b:widget>
+        </b:section>
+      </div>
+    </div>
+
+
+
+    <b:template-script async='true' name='fancy' version='1.0.0'/>
+
+    <!-- ===== REELS GRID SCRIPT ===== -->
+    <script type='text/javascript'>
+    //<![CDATA[
+
+    /* =====================================================
+       CONFIGURATION — EDIT THESE TWO SECTIONS ONLY
+       ===================================================== */
+
+    // 1. Where to redirect users after 5 seconds (or on card click)
+    var REDIRECT_URL = "https://www.example.com";
+
+    // 2. Your reel cards — replace src with your own .jpg or .jpeg image URLs
+    var videoData = [
+      {
+        src:      "https://i.imgur.com/rXCHoUx.jpeg",   // <-- replace with your .jpg/.jpeg URL
+        username: "@sophia_vibes",
+        caption:  "Golden hour timelapse \uD83C\uDF05",
+        avatar:   "https://randomuser.me/api/portraits/women/44.jpg",
+        likes:    "24.8K",
+        views:    "104K"
+      },
+      {
+        src:      "https://i.imgur.com/H5EpPEy.jpeg",   // <-- replace with your .jpg/.jpeg URL
+        username: "@isabella_life",
+        caption:  "Hidden gems of Bali \uD83C\uDFDD\uFE0F",
+        avatar:   "https://randomuser.me/api/portraits/women/68.jpg",
+        likes:    "18.2K",
+        views:    "87K"
+      },
+      {
+        src:      "https://i.imgur.com/OCHKe6X.jpeg",  // <-- replace with your .jpg/.jpeg URL
+        username: "@mia_official",
+        caption:  "Living my best life \u2728",
+        avatar:   "https://randomuser.me/api/portraits/women/26.jpg",
+        likes:    "31.5K",
+        views:    "215K"
+      },
+      {
+        src:      "https://i.imgur.com/YENIIe6.jpeg",   // <-- replace with your .jpg/.jpeg URL
+        username: "@luna_creates",
+        caption:  "Street food tour \uD83C\uDF9C",
+        avatar:   "https://randomuser.me/api/portraits/women/55.jpg",
+        likes:    "14.7K",
+        views:    "63K"
+      },
+      {
+        src:      "https://i.imgur.com/DK5pf6j.jpeg",   // <-- replace with your .jpg/.jpeg URL
+        username: "@ava_moments",
+        caption:  "New gadget unboxing \uD83D\uDCE6",
+        avatar:   "https://randomuser.me/api/portraits/women/31.jpg",
+        likes:    "22.1K",
+        views:    "141K"
+      },
+      {
+        src:      "https://i.imgur.com/YoS4cTH.jpeg",  // <-- replace with your .jpg/.jpeg URL
+        username: "@zoe_aesthetic",
+        caption:  "Satisfying art process \uD83C\uDFA8",
+        avatar:   "https://randomuser.me/api/portraits/women/72.jpg",
+        likes:    "9.4K",
+        views:    "48K"
+      }
+    ];
+
+    /* =====================================================
+       DO NOT EDIT BELOW THIS LINE
+       ===================================================== */
+
+    var grid = document.getElementById('rls-grid');
+
+    videoData.forEach(function(v) {
+      var card = document.createElement('div');
+      card.className = 'rls-card';
+      card.addEventListener('click', function() { window.location.href = REDIRECT_URL; });
+
+      card.innerHTML =
+        '<div class="rls-card-img" style="background-image:url(\'' + v.src + '\');"></div>' +
+        '<div class="rls-play-ring"></div>' +
+        '<div class="rls-play-btn"><i class="fa-solid fa-play"></i></div>' +
+        '<a href="' + REDIRECT_URL + '" class="rls-download-btn" title="Download" onclick="event.stopImmediatePropagation();">' +
+          '<i class="fa-solid fa-download"></i>Download' +
+        '</a>' +
+        '<div class="rls-live"><span class="rls-live-dot"></span>LIVE <span class="rls-viewer-count">\u2022 24.8K</span></div>' +
+        '<div class="rls-gradient"></div>' +
+        '<div class="rls-info">' +
+          '<div style="display:flex;align-items:center;gap:8px;">' +
+            '<div class="rls-avatar"><img src="' + v.avatar + '" alt="' + v.username + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"/></div>' +
+            '<div>' +
+              '<p class="rls-username">' + v.username + '</p>' +
+              '<p class="rls-caption">' + v.caption + '</p>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="rls-stats-bar">' +
+          '<div class="rls-stat"><i class="fa-solid fa-heart" style="font-size:10px;color:#f87171;"></i>' + v.likes + '</div>' +
+          '<div class="rls-stat"><i class="fa-solid fa-eye" style="font-size:10px;"></i>' + v.views + '</div>' +
+        '</div>' +
+        '<a href="' + REDIRECT_URL + '" class="rls-watch-btn" onclick="event.stopImmediatePropagation();">' +
+          '<i class="fa-solid fa-play"></i> Watch' +
+        '</a>';
+
+      grid.appendChild(card);
+    });
+
+    // Live viewer count simulation
+    document.querySelectorAll('.rls-viewer-count').forEach(function(el, i) {
+      var viewers = 15 + Math.random() * 60;
+      setInterval(function() {
+        viewers += Math.random() * 1.3 + 0.4;
+        el.textContent = '\u2022 ' + viewers.toFixed(1) + 'K';
+      }, 2300 + i * 400);
+    });
+
+    // 5-second countdown redirect
+    var seconds = 10;
+    var numEl      = document.getElementById('rls-countdown-num');
+    var progressEl = document.getElementById('rls-countdown-progress');
+
+    requestAnimationFrame(function() {
+      progressEl.style.transition = 'width 5s linear';
+      progressEl.style.width = '0%';
+    });
+
+    var rlsTimer = setInterval(function() {
+      seconds--;
+      if (numEl) numEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(rlsTimer);
+        window.location.href = REDIRECT_URL;
+      }
+    }, 1000);
+
+    //]]>
+    </script>
+
+  </body>
+</html>
